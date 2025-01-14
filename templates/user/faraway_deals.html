@@ -1,0 +1,53 @@
+ 
+{% extends "user/base.html" %}
+
+{% block content %}
+
+{% include "user/nav.html" %}
+
+<section class="ftco-section">
+<div class="container bg-light rounded py-2">
+	<h5 class="align-items-center justify-content-center">
+		<span>{{label}}</span>
+	</h5>
+	<hr class="mb-3">
+	<div class="row">
+	
+	{% for products in range(6) %}
+	
+		<div class="col-md-4 col-lg-2 ftco-animate">
+			<div class="product">
+				<a href="{{url_for('view_product')}}" class="img-prod"><img class="img-fluid" src="{{url_for('static', filename='images/product-1.jpg')}}" alt="Faraway Go">
+					<span class="status">30%</span>
+					<div class="overlay"></div>
+				</a>
+				<div class="text py-2 pb-4 px-3 text-center">
+					<h3><a href="">Bell Pepper</a></h3>
+					<div class="d-flex">
+						<div class="pricing">
+							<p class="price"><span class="mr-2 price-dc">BWP 12.00</span><span class="price-sale">BWP 8.00</span></p>
+						</div>
+					</div>
+					<div class="bottom-area d-flex px-3">
+						<div class="m-auto d-flex">
+							<a href="{{url_for('view_product')}}" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+								<span><i class="ion-ios-menu"></i></span>
+							</a>
+							<a href="{{url_for('my_cart')}}" class="buy-now d-flex justify-content-center align-items-center mx-1">
+								<span><i class="ion-ios-cart"></i></span>
+							</a>
+							<a href="{{url_for('my_wish')}}" class="heart d-flex justify-content-center align-items-center ">
+								<span><i class="ion-ios-heart"></i></span>
+							</a>
+						</div>
+					</div>
+			</div>
+			</div>
+	</div>
+	
+	{% endfor %}
+
+</div>
+</section>
+
+{% endblock %}

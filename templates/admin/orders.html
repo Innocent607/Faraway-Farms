@@ -1,0 +1,76 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<style type="text/css">
+    {% include 'style-extensions/order.css' %}
+</style>
+
+
+<div id="wrapper">
+
+    {% include 'admin/admin_sidebar.html' %}
+
+    {% include 'admin/admin_topbar.html' %}
+
+<div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="navbar navbar-dark">
+    <div class="container d-flex justify-content-between align-items-center border-bottom border-gray pb-2 mb-0">
+    <h4 class="text-xs font-weight-bold text-warning text-uppercase px-5 pull-left align-items-left">Orders</h4>
+    <button class="navbar-toggler bg-dark pull-right align-items-right" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    </div>
+
+{% for index in range(len_orders) %}
+<div class="container rounded bg-light box-shadow border-bottom border-black pb-1 mb-0">
+<div class="navbar navbar-dark ">
+    <!--iv class="container d-flex justify-content-between"-->
+        <div class="media text-muted pt-3">
+          <!--img src="{{url_for('static', filename='images/image_3.jpg')}}" alt="Faraway" class="mr-2 rounded"-->
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">@{{orders[index][0]}}</strong>
+          </p>         
+        </div>
+    <!--/div-->
+  </div>
+
+<div class="collapse navbar-collapse" id="navbarHeader">
+    <div class="container">
+      <!--div class="row">
+        <div class="col-sm-8 col-md-7 py-4 rounded">
+          <h4 class="text-white">About</h4>
+          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Contact</h4>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Follow on Twitter</a></li>
+            <li><a href="#" class="text-white">Like on Facebook</a></li>
+            <li><a href="#" class="text-white">Email me</a></li>
+          </ul>
+        </div>
+      </div-->
+      <div class="row">
+        <div class="steps">
+            {% include 'order/progress_bar.html' %}
+            <div class="steps-body">
+                {% include 'order/confirm_order.html' %}
+                {% include 'order/processing_order.html' %}
+                {% include 'order/dispatching_order.html' %}
+                {% include 'order/quality_check.html' %}
+                {% include 'order/order_delivered.html' %}
+            </div>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}
+
+
+  

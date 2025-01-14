@@ -1,0 +1,161 @@
+{% extends 'user/base.html' %}
+
+{% block content %}
+
+<div class="container" id="invoice">
+   <div class="col-md-12">
+      <div class="invoice">
+         <!-- begin invoice-company -->
+         <div class="invoice-company text-inverse f-w-600 lign-items-center justify-content-center">
+            <span class="pull-right hidden-print">
+            <a href="javascript:;" class="btn btn-sm btn-white m-b-10 p-l-5"><i class="fa fa-file t-plus-1 text-danger fa-fw fa-lg"></i> Export as PDF</a>
+            <a href="javascript:;" onclick="window.print()" class="btn btn-sm btn-white m-b-10 p-l-5"><i class="fa fa-print t-plus-1 fa-fw fa-lg"></i> Print</a>
+            </span>
+         </div>
+         <h2 class="text-success">Patients Electronic Test Results</h2>
+         
+         <!-- end invoice-company -->
+         <!-- begin invoice-header -->
+         <div class="invoice-header">
+            <div class="invoice-from">
+               <small>from</small>
+               <address class="m-t-5 m-b-5">
+                  <strong class="text-inverse">iCancer, (PTY) LTD</strong><br>
+                  Phillip Mutant Ave<br>
+                  Gaborone, Botswana<br>
+                  Phone: (+267) 75 046 429<br>
+                  Fax: (+267) 456-7890
+               </address>
+            </div>
+            <div class="invoice-to">
+               <small>to</small>
+               <address class="m-t-5 m-b-5">
+                  <strong class="text-inverse">Tlamelo Makati</strong><br>
+                  Diana Ward<br>
+                  CMogoditshane, Botswana<br>
+                  Phone: (+267) 456-7890<br>
+                  Fax: N/A
+               </address>
+            </div>
+            <div class="invoice-date">
+               <small>Report / Jauary period</small>
+               <div class="date text-inverse m-t-5">January 3,2020</div>
+               <div class="invoice-detail">
+                  #0000123DSS<br>
+                  Med. Pat. Report
+               </div>
+            </div>
+         </div>
+         <!-- end invoice-header -->
+         <!-- begin invoice-content -->
+         <div class="invoice-content">
+            <!-- card contents -->
+            <div class="container">
+               <div class="col-md-12">
+                  <div class="row">
+                     <div class="col-lg-5">
+                        <h6 class="text-success mb-2">Personal Infomation</h6>
+                        <p></p>
+                     </div>
+                     <div class="col-lg-5">
+                        <h6 class="text-success">Date of Birth</h6>
+                        <p></p>
+                        <h6 class="text-success">Address</h6>
+                        <p></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="container">
+               <div class="col-md-12">
+                  <h4 class="text-danger mb-2">
+                     <strong>In Case of Emergency</strong>
+                  </h4>
+                  <hr class="mb-3 text-danger">
+                  <div class="row">
+                     <div class="col-lg-5">
+                        <strong>{{next[0]}}</strong>
+                        <h6 class="text-success">Phone</h6>
+                        <p>{{next[1]}}</p>
+                        <h6 class="text-success">Work</h6>
+                        <p></p>
+                     </div>
+                     <div class="col-lg-5">
+                        <h6 class="text-success">Address</h6>
+                        <p></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="container">
+               <div class="col-md-12">
+                  <h4 class="text-success mb-2">
+                     <strong>General Medical History</strong>
+                  </h4>
+                  <hr class="mb-3 text-success">
+                  <div class="row">
+                     <div class="col-lg-5">
+                        <h6 class="text-success mb-2">Personal Infomation</h6>
+                        <p></p>
+                     </div>
+                     <div class="col-lg-5">
+                        <h6 class="text-success">Date of Birth</h6>
+                        <p></p>
+                        <h6 class="text-success">Address</h6>
+                        <p></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            
+            <!-- end card contents -->
+            <!-- begin invoice-price >
+            <div class="invoice-price">
+               <div class="invoice-price-left">
+                  <div class="invoice-price-row">
+                     <div class="sub-price">
+                        <small>SUBTOTAL</small>
+                        <span class="text-inverse">$4,500.00</span>
+                     </div>
+                     <div class="sub-price">
+                        <i class="fa fa-plus text-muted"></i>
+                     </div>
+                     <div class="sub-price">
+                        <small>PAYPAL FEE (5.4%)</small>
+                        <span class="text-inverse">$108.00</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="invoice-price-right">
+                  <small>TOTAL</small> <span class="f-w-600">$4508.00</span>
+               </div>
+            </div>
+            <!-- end invoice-price -->
+         </div>
+         <!-- end invoice-content -->
+         <!-- begin invoice-note -->
+         <div class="invoice-note">
+            * This is a confidential document containing self test medical report<br>
+            * Further contains medical history<br>
+            * If you have any questions concerning this invoice, contact  us
+         </div>
+         <!-- end invoice-note -->
+         <!-- begin invoice-footer -->
+         <div class="invoice-footer">
+            <p class="text-center m-b-5 f-w-600">
+               THANK YOU FOR YOUR BUSINESS
+            </p>
+            <p class="text-center">
+               <span class="m-r-10"><i class="fa fa-fw fa-lg fa-globe"></i> matiasgallipoli.com</span>
+               <span class="m-r-10"><i class="fa fa-fw fa-lg fa-phone-volume"></i> T:016-18192302</span>
+               <span class="m-r-10"><i class="fa fa-fw fa-lg fa-envelope"></i> rtiemps@gmail.com</span>
+            </p>
+         </div>
+         <!-- end invoice-footer -->
+      </div>
+   </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,133 @@
+{% extends "user/base.html" %}
+
+{% block content %}
+
+{% include "user/nav.html" %}
+
+    <section class="ftco-section ftco-cart">
+			<div class="container">
+
+				{% if not cart %}
+
+				<div class="col-md-12 ftco-animate justify-content-center text-center">
+					<p class="mb-5">Your <strong>Shopping Basket</strong> is <strong>empty</strong>. To add products of your choice, click <a href="{{url_for('shop')}}"><em>here</em></a>.</p>
+					<p><a href="{{url_for('shop')}}" class="btn btn-primary">Continue Shopping @ Faraway Store</a></p>
+				</div>
+
+				{% else %}
+
+				<div class="row">
+    			<div class="col-md-12 ftco-animate">
+    				<div class="cart-list">
+	    				<table class="table">
+						    <thead class="thead-primary">
+						      <tr class="text-center">
+						        <th>&nbsp;</th>
+						        <th>&nbsp;</th>
+						        <th>Product name</th>
+						        <th>Price</th>
+						        <th>Quantity</th>
+						        <th>Total</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+							
+								{% for item in cart %} 
+
+						      <tr class="text-center">
+						        <td class="product-remove"><a href="#"><i class="fas fa-trash-alt"></i><!--span class="fab fa-trash-bin"></span--></a></td>
+						        
+						        <td class="image-prod"><div class="img" src="{{url_for('static', filename='images/product-3.jpg')}}" alt="Faraway"></div></td>
+						        
+						        <td class="product-name">
+						        	<h3>{{item[0]}}</h3>
+						        	<p>{{item[1]}}</p>
+						        </td>
+						        
+						        <td class="price">BWP {{item[2]}}</td>
+						        
+						        <td class="quantity">
+						        	<div class="input-group mb-3">
+					             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
+					          	</div>
+					          </td>
+						        
+						        <td class="total">BWP {{item[2]}}</td>
+						      </tr><!-- END TR-->
+
+							  {% endfor %}
+
+						    </tbody>
+						  </table>
+					  </div>
+					  <div class="row justify-content-center mb-4">
+						<p class="mb-5 col-md"><a  href="#" class="btn btn-primary">Empty Shopping Cart</a></p>
+						<p class="mb-5 col-md"><a  href="{{url_for('checkout')}}" class="btn btn-primary">Proceed with Payment</a></p>
+					</div>
+    			</div>
+    		</div>
+    		<div class="row justify-content-end">
+    			<div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+    				<div class="cart-total mb-3">
+    					<h3>Coupon Code</h3>
+    					<p>Enter your coupon code if you have one</p>
+  						<form action="#" class="info">
+	              <div class="form-group">
+	              	<label for="">Coupon code</label>
+	                <input type="text" class="form-control text-left px-3" placeholder="">
+	              </div>
+	            </form>
+    				</div>
+    				<p><a href="{{url_for('checkout')}}" class="btn btn-primary py-2 px-4">Apply Coupon</a></p>
+    			</div>
+    			<div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+    				<div class="cart-total mb-3">
+    					<h3>Estimate shipping and tax</h3>
+    					<p>Enter your destination to get a shipping estimate</p>
+  						<form action="#" class="info">
+	              <div class="form-group">
+	              	<label for="">Country</label>
+	                <input type="text" class="form-control text-left px-3" placeholder="">
+	              </div>
+	              <div class="form-group">
+	              	<label for="country">State/Province</label>
+	                <input type="text" class="form-control text-left px-3" placeholder="">
+	              </div>
+	              <div class="form-group">
+	              	<label for="country">Zip/Postal Code</label>
+	                <input type="text" class="form-control text-left px-3" placeholder="">
+	              </div>
+	            </form>
+    				</div>
+    				<p><a href="{{url_for('checkout')}}" class="btn btn-primary py-2 px-2">Estimate</a></p>
+    			</div>
+    			<div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+    				<div class="cart-total mb-3">
+    					<h3>Cart Totals</h3>
+    					<p class="d-flex">
+    						<span>Subtotal</span>
+    						<span>BWP 4.90</span>
+    					</p>
+    					<p class="d-flex">
+    						<span>Delivery</span>
+    						<span>BWP 30.00</span>
+    					</p>
+    					<p class="d-flex">
+    						<span>Discount</span>
+    						<span>BWP 3.00</span>
+    					</p>
+    					<hr>
+    					<p class="d-flex total-price">
+    						<span>Total</span>
+    						<span>BWP 31.90</span>
+    					</p>
+    				</div>
+    				<p><a href="{{url_for('checkout')}}" class="btn btn-primary py-3 px-2">Proceed to Checkout</a></p>
+    			</div>
+    		</div>
+			
+			{% endif %}
+			</div>
+		</section>
+
+{% endblock %}

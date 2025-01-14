@@ -1,0 +1,89 @@
+
+    <section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{url_for('static', filename='images/about.jpg') }})">
+						<a href="{{url_for('static', filename='mp4/video.mp4')}}" class="icon popup-vimeo d-flex justify-content-center align-items-center">
+							<span class="icon-play"></span>
+						</a>
+					</div>
+					<div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
+	          <div class="heading-section-bold mb-4 mt-md-5">
+	          	<div class="ml-md-0" id="about_us">
+		            <div class="cta-inner text-center rounded">
+						<h2 class="section-heading mb-4">
+							<span class="section-heading-upper">Welcome To</span>
+							<span class="section-heading-lower">Faraway</span>
+						</h2>
+					</div>
+	            </div>
+	          </div>
+	          <div class="pb-md-5">
+	          	<p class="mb-4"><strong>Faraway</strong>, far beyond the future. Were your imagination is the key to unlock the future. We're bringing the future to you. Let us ride together. Take a tour, take your time and Maneuver <strong><a href="{{url_for('shop')}}">Faraway Fresh</a></strong> with dexterity.</p>
+				<p class="mb-4">You're our most delicate <strong>customer</strong> who deserves the best of the best. </p>
+				<p class="justify-content-center"><strong>Thank you</strong>, for shopping with us.</p>
+				<p class="justify-content-center"><strong>Thank you</strong>, for choosing Faraway.</p>
+
+				<!-- p>Country: <span id="country"></span></p>
+    			<p>State: <span id="state"></span></p>
+    			<p>City: <span id="city"></span></p>
+    			<p>Address: <span id="address"></span></p>
+
+    			<p>Latitude: <span id="latitude"></span></p>
+    			<p>Longitude: <span id="longitude"></span></p -->
+
+							<div class="row justify-content-center mb-4">
+								<p class="mb-5 col-md"><a  href="{{url_for('about')}}" class="btn btn-primary">About Faraway</a></p>
+								<p class="mb-5 col-md"><a  href="{{url_for('shop')}}" class="btn btn-primary">Shop @ Faraway</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!--								
+		<script>
+			if ('geolocation' in navigator){
+				navigator.geolocation.getCurrentPosition(position => {
+					const lat = location.coords.latitude;
+					const lon = location.coords.longitude;
+
+					document.getElementById('latitude').textContent = lat;
+					document.getElementById('longitude').textContent = lon;
+				})
+			}
+		</script>
+-->
+
+		<script type="text/javascript">
+			navigator.geolocation.getCurrentPosition(success, error);
+	
+			function success(position) {
+	
+				var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude + '%2C' + position.coords.longitude + '&language=en';
+	
+				$.getJSON(GEOCODING).done(function(location) {
+					$('#country').html(location.results[0].address_components[5].long_name);
+					$('#state').html(location.results[0].address_components[4].long_name);
+					$('#city').html(location.results[0].address_components[2].long_name);
+					$('#address').html(location.results[0].formatted_address);
+					//$('#latitude').html(position.coords.latitude);
+					//$('#longitude').html(position.coords.longitude);
+
+					const lat = position.coords.latitude;
+					const lon = position.coords.longitude;
+
+					//const lat = location.coords.latitude;
+					//const lon = location.coords.longitude;
+
+					document.getElementById('latitude').textContent = lat;
+					document.getElementById('longitude').textContent = lon;
+				})
+	
+			}
+	
+			function error(err) {
+				console.log(err)
+			}
+		</script>

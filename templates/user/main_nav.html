@@ -1,0 +1,59 @@
+	    <div class="container">
+			<div class="col-md-6 bg-news">
+				<a class="navbar-brand" href="{{url_for('home')}}">Faraway      Fresh</a>
+				<button class="navbar-toggler bg-black" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="oi oi-menu"></span> Menu
+				</button>
+			</div>
+
+	      <div class="col-md-6 collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="{{url_for('home')}}" class="nav-link">Home</a></li>
+	          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Store</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+				<p class="dropdown-item">Welcome to Faraway Fresh</p>
+				<hr>
+              	<a class="dropdown-item" href="{{url_for('shop')}}">Products</a>
+				<a class="dropdown-item" href="{{url_for('kiosky')}}">Kiosky</a>
+				<!--a class="dropdown-item" href="{{url_for('sales_off')}}">Promotions</a-->
+				<a class="dropdown-item" href="{{url_for('deals')}}">Deals & Promotions</a>
+              	
+                <!--a class="dropdown-item" href="{{url_for('view_product')}}">Single Product</a-->
+                <!--a class="dropdown-item" href="{{url_for('my_cart')}}">Shopping Cart</a-->
+                <!--a class="dropdown-item" href="{{url_for('checkout')}}">Checkout</a-->
+              </div>
+            </li>
+	          <li class="nav-item"><a href="{{url_for('about')}}" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="{{url_for('contact_us')}}" class="nav-link">Contact</a></li>
+			  {% if signedin %}
+	          	<li class="nav-item cta cta-colored"><a href="{{url_for('my_cart')}}" class="nav-link">[0]</a></li>
+			  {% endif %}
+			
+	          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">Account</a>
+              <div class="dropdown-menu col-md-5" aria-labelledby="dropdown04">
+				<!--div class="row dropdown-item"-->
+                    <div class="justify-content-between align-items-center dropdown-item col-md-6 collapse navbar-collapse" id="ftco-nav">
+						{% if signedin %}
+                      		<p><a type="button" class="btn btn-primary" href="{{url_for('signout')}}">sign out</a></p>
+						{% else %}
+							<div class="row justify-content-center">
+								<p class="col-md d-flex">
+									<a type="button" class="btn btn-primary mb-3 d-flex py-2 px-3" href="{{url_for('signin')}}">signin</a>
+									<a type="button" class="btn btn-primary mb-3 d-flex py-2 px-3" href="{{url_for('signup')}}">signup</a>
+								</p>
+							</div>
+						{% endif %}
+						</div>
+				<hr>
+              	<a class="dropdown-item" href="{{url_for('view_profile')}}">My Profile</a>
+				<a class="dropdown-item" href="{{url_for('my_cart')}}">My Cart</a>
+              	<a class="dropdown-item" href="{{url_for('my_orders')}}">My Orders</a>
+				<a class="dropdown-item" href="{{url_for('my_wish')}}">Wish List</a>
+				<a class="dropdown-item" href="{{url_for('kiosky')}}">Online Chat</a>
+              </div>
+            </li>
+	        </ul>
+	      </div>
+	    </div>

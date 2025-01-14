@@ -1,0 +1,1450 @@
+{% extends "user/base.html" %}
+
+{% block content %}
+
+<style type="text/css">
+    .user-box {
+    width: 110px;
+    margin: auto;
+    margin-bottom: 20px;
+    
+}
+
+.user-box img {
+    width: 100%;
+    border-radius: 50%;
+	padding: 3px;
+	background: #fff;
+	-webkit-box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+}
+
+.profile-card-2 .card {
+	position:relative;
+}
+
+.profile-card-2 .card .card-body {
+	z-index:1;
+}
+
+.profile-card-2 .card::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+	border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    height: 112px;
+    background-color: #e6e6e6;
+}
+
+.profile-card-2 .card.profile-primary::before {
+	background-color: #008cff;
+}
+.profile-card-2 .card.profile-success::before {
+	background-color: #15ca20;
+}
+.profile-card-2 .card.profile-danger::before {
+	background-color: #fd3550;
+}
+.profile-card-2 .card.profile-warning::before {
+	background-color: #ff9700;
+}
+.profile-card-2 .user-box {
+	margin-top: 30px;
+}
+
+.profile-card-3 .user-fullimage {
+	position:relative;
+}
+
+.profile-card-3 .user-fullimage .details{
+	position: absolute;
+    bottom: 0;
+    left: 0px;
+	width:100%;
+}
+
+.profile-card-4 .user-box {
+    width: 110px;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.profile-card-4 .list-icon {
+    display: table-cell;
+    font-size: 30px;
+    padding-right: 20px;
+    vertical-align: middle;
+    color: #223035;
+}
+
+.profile-card-4 .list-details {
+	display: table-cell;
+	vertical-align: middle;
+	font-weight: 600;
+    color: #223035;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.profile-card-4 .list-details small{
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 12px;
+	font-weight: 400;
+    color: #808080;
+}
+
+/*Nav Tabs & Pills */
+.nav-tabs .nav-link {
+    color: #223035;
+	font-size: 12px;
+    text-align: center;
+	letter-spacing: 1px;
+    font-weight: 600;
+	margin: 2px;
+    margin-bottom: 0;
+	padding: 12px 20px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+	
+}
+.nav-tabs .nav-link:hover{
+    border: 1px solid transparent;
+}
+.nav-tabs .nav-link i {
+    margin-right: 2px;
+	font-weight: 600;
+}
+
+.top-icon.nav-tabs .nav-link i{
+	margin: 0px;
+	font-weight: 500;
+	display: block;
+    font-size: 20px;
+    padding: 5px 0;
+}
+
+.nav-tabs-primary.nav-tabs{
+	border-bottom: 1px solid #008cff;
+}
+
+.nav-tabs-primary .nav-link.active, .nav-tabs-primary .nav-item.show>.nav-link {
+    color: #008cff;
+    background-color: #fff;
+    border-color: #008cff #008cff #fff;
+    border-top: 3px solid #008cff;
+}
+
+.nav-tabs-success.nav-tabs{
+	border-bottom: 1px solid #15ca20;
+}
+
+.nav-tabs-success .nav-link.active, .nav-tabs-success .nav-item.show>.nav-link {
+    color: #15ca20;
+    background-color: #fff;
+    border-color: #15ca20 #15ca20 #fff;
+    border-top: 3px solid #15ca20;
+}
+
+.nav-tabs-info.nav-tabs{
+	border-bottom: 1px solid #0dceec;
+}
+
+.nav-tabs-info .nav-link.active, .nav-tabs-info .nav-item.show>.nav-link {
+    color: #0dceec;
+    background-color: #fff;
+    border-color: #0dceec #0dceec #fff;
+    border-top: 3px solid #0dceec;
+}
+
+.nav-tabs-danger.nav-tabs{
+	border-bottom: 1px solid #fd3550;
+}
+
+.nav-tabs-danger .nav-link.active, .nav-tabs-danger .nav-item.show>.nav-link {
+    color: #fd3550;
+    background-color: #fff;
+    border-color: #fd3550 #fd3550 #fff;
+    border-top: 3px solid #fd3550;
+}
+
+.nav-tabs-warning.nav-tabs{
+	border-bottom: 1px solid #ff9700;
+}
+
+.nav-tabs-warning .nav-link.active, .nav-tabs-warning .nav-item.show>.nav-link {
+    color: #ff9700;
+    background-color: #fff;
+    border-color: #ff9700 #ff9700 #fff;
+    border-top: 3px solid #ff9700;
+}
+
+.nav-tabs-dark.nav-tabs{
+	border-bottom: 1px solid #223035;
+}
+
+.nav-tabs-dark .nav-link.active, .nav-tabs-dark .nav-item.show>.nav-link {
+    color: #223035;
+    background-color: #fff;
+    border-color: #223035 #223035 #fff;
+    border-top: 3px solid #223035;
+}
+
+.nav-tabs-secondary.nav-tabs{
+	border-bottom: 1px solid #75808a;
+}
+.nav-tabs-secondary .nav-link.active, .nav-tabs-secondary .nav-item.show>.nav-link {
+    color: #75808a;
+    background-color: #fff;
+    border-color: #75808a #75808a #fff;
+    border-top: 3px solid #75808a;
+}
+
+.tabs-vertical .nav-tabs .nav-link {
+    color: #223035;
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin: 2px;
+    margin-right: -1px;
+    padding: 12px 1px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    border-radius: 0;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+
+.tabs-vertical .nav-tabs{
+	border:0;
+	border-right: 1px solid #dee2e6;
+}
+
+.tabs-vertical .nav-tabs .nav-item.show .nav-link, .tabs-vertical .nav-tabs .nav-link.active {
+    color: #495057;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+    border-bottom: 1px solid #dee2e6;
+    border-right: 0;
+    border-left: 1px solid #dee2e6;
+}
+
+.tabs-vertical-primary.tabs-vertical .nav-tabs{
+	border:0;
+	border-right: 1px solid #008cff;
+}
+
+.tabs-vertical-primary.tabs-vertical .nav-tabs .nav-item.show .nav-link, .tabs-vertical-primary.tabs-vertical .nav-tabs .nav-link.active {
+    color: #008cff;
+    background-color: #fff;
+    border-color: #008cff #008cff #fff;
+    border-bottom: 1px solid #008cff;
+    border-right: 0;
+    border-left: 3px solid #008cff;
+}
+
+.tabs-vertical-success.tabs-vertical .nav-tabs{
+	border:0;
+	border-right: 1px solid #15ca20;
+}
+
+.tabs-vertical-success.tabs-vertical .nav-tabs .nav-item.show .nav-link, .tabs-vertical-success.tabs-vertical .nav-tabs .nav-link.active {
+    color: #15ca20;
+    background-color: #fff;
+    border-color: #15ca20 #15ca20 #fff;
+    border-bottom: 1px solid #15ca20;
+    border-right: 0;
+    border-left: 3px solid #15ca20;
+}
+
+.tabs-vertical-info.tabs-vertical .nav-tabs{
+	border:0;
+	border-right: 1px solid #0dceec;
+}
+
+.tabs-vertical-info.tabs-vertical .nav-tabs .nav-item.show .nav-link, .tabs-vertical-info.tabs-vertical .nav-tabs .nav-link.active {
+    color: #0dceec;
+    background-color: #fff;
+    border-color: #0dceec #0dceec #fff;
+    border-bottom: 1px solid #0dceec;
+    border-right: 0;
+    border-left: 3px solid #0dceec;
+}
+
+.tabs-vertical-danger.tabs-vertical .nav-tabs{
+	border:0;
+	border-right: 1px solid #fd3550;
+}
+
+.tabs-vertical-danger.tabs-vertical .nav-tabs .nav-item.show .nav-link, .tabs-vertical-danger.tabs-vertical .nav-tabs .nav-link.active {
+    color: #fd3550;
+    background-color: #fff;
+    border-color: #fd3550 #fd3550 #fff;
+    border-bottom: 1px solid #fd3550;
+    border-right: 0;
+    border-left: 3px solid #fd3550;
+}
+
+.tabs-vertical-warning.tabs-vertical .nav-tabs{
+	border:0;
+	border-right: 1px solid #ff9700;
+}
+
+.tabs-vertical-warning.tabs-vertical .nav-tabs .nav-item.show .nav-link, .tabs-vertical-warning.tabs-vertical .nav-tabs .nav-link.active {
+    color: #ff9700;
+    background-color: #fff;
+    border-color: #ff9700 #ff9700 #fff;
+    border-bottom: 1px solid #ff9700;
+    border-right: 0;
+    border-left: 3px solid #ff9700;
+}
+
+.tabs-vertical-dark.tabs-vertical .nav-tabs{
+	border:0;
+	border-right: 1px solid #223035;
+}
+
+.tabs-vertical-dark.tabs-vertical .nav-tabs .nav-item.show .nav-link, .tabs-vertical-dark.tabs-vertical .nav-tabs .nav-link.active {
+    color: #223035;
+    background-color: #fff;
+    border-color: #223035 #223035 #fff;
+    border-bottom: 1px solid #223035;
+    border-right: 0;
+    border-left: 3px solid #223035;
+}
+
+.tabs-vertical-secondary.tabs-vertical .nav-tabs{
+	border:0;
+	border-right: 1px solid #75808a;
+}
+
+.tabs-vertical-secondary.tabs-vertical .nav-tabs .nav-item.show .nav-link, .tabs-vertical-secondary.tabs-vertical .nav-tabs .nav-link.active {
+    color: #75808a;
+    background-color: #fff;
+    border-color: #75808a #75808a #fff;
+    border-bottom: 1px solid #75808a;
+    border-right: 0;
+    border-left: 3px solid #75808a;
+}
+
+.nav-pills .nav-link {
+    border-radius: .25rem;
+    color: #223035;
+    font-size: 12px;
+    text-align: center;
+	letter-spacing: 1px;
+    font-weight: 600;
+    text-transform: uppercase;
+	margin: 3px;
+    padding: 12px 20px;
+	-webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease; 
+
+}
+
+.nav-pills .nav-link:hover {
+    background-color:#f4f5fa;
+}
+
+.nav-pills .nav-link i{
+	margin-right:2px;
+	font-weight: 600;
+}
+
+.top-icon.nav-pills .nav-link i{
+	margin: 0px;
+	font-weight: 500;
+	display: block;
+    font-size: 20px;
+    padding: 5px 0;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #008cff;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(0, 140, 255, 0.5);
+}
+
+.nav-pills-success .nav-link.active, .nav-pills-success .show>.nav-link {
+    color: #fff;
+    background-color: #15ca20;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(21, 202, 32, .5);
+}
+
+.nav-pills-info .nav-link.active, .nav-pills-info .show>.nav-link {
+    color: #fff;
+    background-color: #0dceec;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(13, 206, 236, 0.5);
+}
+
+.nav-pills-danger .nav-link.active, .nav-pills-danger .show>.nav-link{
+    color: #fff;
+    background-color: #fd3550;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(253, 53, 80, .5);
+}
+
+.nav-pills-warning .nav-link.active, .nav-pills-warning .show>.nav-link {
+    color: #fff;
+    background-color: #ff9700;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(255, 151, 0, .5);
+}
+
+.nav-pills-dark .nav-link.active, .nav-pills-dark .show>.nav-link {
+    color: #fff;
+    background-color: #223035;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(34, 48, 53, .5);
+}
+
+.nav-pills-secondary .nav-link.active, .nav-pills-secondary .show>.nav-link {
+    color: #fff;
+    background-color: #75808a;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(117, 128, 138, .5);
+}
+.card .tab-content{
+	padding: 1rem 0 0 0;
+}
+
+.z-depth-3 {
+    -webkit-box-shadow: 0 11px 7px 0 rgba(0,0,0,0.19),0 13px 25px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 11px 7px 0 rgba(0,0,0,0.19),0 13px 25px 0 rgba(0,0,0,0.3);
+}
+    .account-settings .user-profile {
+        margin: 0 0 1rem 0;
+        padding-bottom: 1rem;
+        text-align: center;
+    }
+    .account-settings .user-profile .user-avatar {
+        margin: 0 0 1rem 0;
+    }
+    .account-settings .user-profile .user-avatar img {
+        width: 90px;
+        height: 90px;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        border-radius: 100px;
+    }
+    .account-settings .user-profile h5.user-name {
+        margin: 0 0 0.5rem 0;
+    }
+    .account-settings .user-profile h6.user-email {
+        margin: 0;
+        font-size: 0.8rem;
+        font-weight: 400;
+    }
+    .account-settings .about {
+        margin: 1rem 0 0 0;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+    .card {
+        background: #fcfdc9f6;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        border: 0;
+        margin-bottom: 1rem;
+    }
+    .form-control {
+        border: 1px solid #596280;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        font-size: .825rem;
+        background: #1A233A;
+        color: #bcd0f7;
+    }
+    
+    .view-account{
+    background:#FFFFFF; 
+    margin-top:20px;
+}
+.view-account .pro-label {
+    font-size: 13px;
+    padding: 4px 5px;
+    position: relative;
+    top: -5px;
+    margin-left: 10px;
+    display: inline-block
+}
+
+.view-account .side-bar {
+    padding-bottom: 30px
+}
+
+.view-account .side-bar .user-info {
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 30px;
+    color: #616670;
+    border-bottom: 1px solid #f3f3f3
+}
+
+.view-account .side-bar .user-info .img-profile {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px
+}
+
+.view-account .side-bar .user-info .meta li {
+    margin-bottom: 10px
+}
+
+.view-account .side-bar .user-info .meta li span {
+    display: inline-block;
+    width: 100px;
+    margin-right: 5px;
+    text-align: right
+}
+
+.view-account .side-bar .user-info .meta li a {
+    color: #616670
+}
+
+.view-account .side-bar .user-info .meta li.activity {
+    color: #a2a6af
+}
+
+.view-account .side-bar .side-menu {
+    text-align: center
+}
+
+.view-account .side-bar .side-menu .nav {
+    display: inline-block;
+    margin: 0 auto
+}
+
+.view-account .side-bar .side-menu .nav>li {
+    font-size: 14px;
+    margin-bottom: 0;
+    border-bottom: none;
+    display: inline-block;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px
+}
+
+.view-account .side-bar .side-menu .nav>li:last-child {
+    margin-right: 0
+}
+
+.view-account .side-bar .side-menu .nav>li>a {
+    display: inline-block;
+    color: #9499a3;
+    padding: 5px;
+    border-bottom: 2px solid transparent
+}
+
+.view-account .side-bar .side-menu .nav>li>a:hover {
+    color: #616670;
+    background: none
+}
+
+.view-account .side-bar .side-menu .nav>li.active a {
+    color: #40babd;
+    border-bottom: 2px solid #40babd;
+    background: none;
+    border-right: none
+}
+
+.theme-2 .view-account .side-bar .side-menu .nav>li.active a {
+    color: #6dbd63;
+    border-bottom-color: #6dbd63
+}
+
+.theme-3 .view-account .side-bar .side-menu .nav>li.active a {
+    color: #497cb1;
+    border-bottom-color: #497cb1
+}
+
+.theme-4 .view-account .side-bar .side-menu .nav>li.active a {
+    color: #ec6952;
+    border-bottom-color: #ec6952
+}
+
+.view-account .side-bar .side-menu .nav>li .icon {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 5px
+}
+
+.view-account .content-panel {
+    padding: 30px
+}
+
+.view-account .content-panel .title {
+    margin-bottom: 15px;
+    margin-top: 0;
+    font-size: 18px
+}
+
+.view-account .content-panel .fieldset-title {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eaeaf1;
+    margin-bottom: 30px;
+    color: #616670;
+    font-size: 16px
+}
+
+.view-account .content-panel .avatar .figure img {
+    float: right;
+    width: 64px
+}
+
+.view-account .content-panel .content-header-wrapper {
+    position: relative;
+    margin-bottom: 30px
+}
+
+.view-account .content-panel .content-header-wrapper .actions {
+    position: absolute;
+    right: 0;
+    top: 0
+}
+
+.view-account .content-panel .content-utilities {
+    position: relative;
+    margin-bottom: 30px
+}
+
+.view-account .content-panel .content-utilities .btn-group {
+    margin-right: 5px;
+    margin-bottom: 15px
+}
+
+.view-account .content-panel .content-utilities .fa {
+    font-size: 16px;
+    margin-right: 0
+}
+
+.view-account .content-panel .content-utilities .page-nav {
+    position: absolute;
+    right: 0;
+    top: 0
+}
+
+.view-account .content-panel .content-utilities .page-nav .btn-group {
+    margin-bottom: 0
+}
+
+.view-account .content-panel .content-utilities .page-nav .indicator {
+    color: #a2a6af;
+    margin-right: 5px;
+    display: inline-block
+}
+
+.view-account .content-panel .mails-wrapper .mail-item {
+    position: relative;
+    padding: 10px;
+    border-bottom: 1px solid #f3f3f3;
+    color: #616670;
+    overflow: hidden
+}
+
+.view-account .content-panel .mails-wrapper .mail-item>div {
+    float: left
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .icheck {
+    background-color: #fff
+}
+
+.view-account .content-panel .mails-wrapper .mail-item:hover {
+    background: #f9f9fb
+}
+
+.view-account .content-panel .mails-wrapper .mail-item:nth-child(even) {
+    background: #fcfcfd
+}
+
+.view-account .content-panel .mails-wrapper .mail-item:nth-child(even):hover {
+    background: #f9f9fb
+}
+
+.view-account .content-panel .mails-wrapper .mail-item a {
+    color: #616670
+}
+
+.view-account .content-panel .mails-wrapper .mail-item a:hover {
+    color: #494d55;
+    text-decoration: none
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .checkbox-container,
+.view-account .content-panel .mails-wrapper .mail-item .star-container {
+    display: inline-block;
+    margin-right: 5px
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .star-container .fa {
+    color: #a2a6af;
+    font-size: 16px;
+    vertical-align: middle
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .star-container .fa.fa-star {
+    color: #f2b542
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .star-container .fa:hover {
+    color: #868c97
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .mail-to {
+    display: inline-block;
+    margin-right: 5px;
+    min-width: 120px
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .mail-subject {
+    display: inline-block;
+    margin-right: 5px
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .mail-subject .label {
+    margin-right: 5px
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .mail-subject .label:last-child {
+    margin-right: 10px
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .mail-subject .label a,
+.view-account .content-panel .mails-wrapper .mail-item .mail-subject .label a:hover {
+    color: #fff
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .mail-subject .label-color-1 {
+    background: #f77b6b
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .mail-subject .label-color-2 {
+    background: #58bbee
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .mail-subject .label-color-3 {
+    background: #f8a13f
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .mail-subject .label-color-4 {
+    background: #ea5395
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .mail-subject .label-color-5 {
+    background: #8a40a7
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .time-container {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #a2a6af;
+    text-align: left
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .time-container .attachment-container {
+    display: inline-block;
+    color: #a2a6af;
+    margin-right: 5px
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .time-container .time {
+    display: inline-block;
+    text-align: right
+}
+
+.view-account .content-panel .mails-wrapper .mail-item .time-container .time.today {
+    font-weight: 700;
+    color: #494d55
+}
+
+.drive-wrapper {
+    padding: 15px;
+    background: #f5f5f5;
+    overflow: hidden
+}
+
+.drive-wrapper .drive-item {
+    width: 130px;
+    margin-right: 15px;
+    display: inline-block;
+    float: left
+}
+
+.drive-wrapper .drive-item:hover {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .1);
+    z-index: 1
+}
+
+.drive-wrapper .drive-item-inner {
+    padding: 15px
+}
+
+.drive-wrapper .drive-item-title {
+    margin-bottom: 15px;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.drive-wrapper .drive-item-title a {
+    color: #494d55
+}
+
+.drive-wrapper .drive-item-title a:hover {
+    color: #40babd
+}
+
+.theme-2 .drive-wrapper .drive-item-title a:hover {
+    color: #6dbd63
+}
+
+.theme-3 .drive-wrapper .drive-item-title a:hover {
+    color: #497cb1
+}
+
+.theme-4 .drive-wrapper .drive-item-title a:hover {
+    color: #ec6952
+}
+
+.drive-wrapper .drive-item-thumb {
+    width: 100px;
+    height: 80px;
+    margin: 0 auto;
+    color: #616670
+}
+
+.drive-wrapper .drive-item-thumb a {
+    -webkit-opacity: .8;
+    -moz-opacity: .8;
+    opacity: .8
+}
+
+.drive-wrapper .drive-item-thumb a:hover {
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1
+}
+
+.drive-wrapper .drive-item-thumb .fa {
+    display: inline-block;
+    font-size: 36px;
+    margin: 0 auto;
+    margin-top: 20px
+}
+
+.drive-wrapper .drive-item-footer .utilities {
+    margin-bottom: 0
+}
+
+.drive-wrapper .drive-item-footer .utilities li:last-child {
+    padding-right: 0
+}
+
+.drive-list-view .name {
+    width: 60%
+}
+
+.drive-list-view .name.truncate {
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.drive-list-view .type {
+    width: 15px
+}
+
+.drive-list-view .date,
+.drive-list-view .size {
+    max-width: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.drive-list-view a {
+    color: #494d55
+}
+
+.drive-list-view a:hover {
+    color: #40babd
+}
+
+.theme-2 .drive-list-view a:hover {
+    color: #6dbd63
+}
+
+.theme-3 .drive-list-view a:hover {
+    color: #497cb1
+}
+
+.theme-4 .drive-list-view a:hover {
+    color: #ec6952
+}
+
+.drive-list-view td.date,
+.drive-list-view td.size {
+    color: #a2a6af
+}
+
+@media (max-width:767px) {
+    .view-account .content-panel .title {
+        text-align: center
+    }
+    .view-account .side-bar .user-info {
+        padding: 0
+    }
+    .view-account .side-bar .user-info .img-profile {
+        width: 60px;
+        height: 60px
+    }
+    .view-account .side-bar .user-info .meta li {
+        margin-bottom: 5px
+    }
+    .view-account .content-panel .content-header-wrapper .actions {
+        position: static;
+        margin-bottom: 30px
+    }
+    .view-account .content-panel {
+        padding: 0
+    }
+    .view-account .content-panel .content-utilities .page-nav {
+        position: static;
+        margin-bottom: 15px
+    }
+    .drive-wrapper .drive-item {
+        width: 100px;
+        margin-right: 5px;
+        float: none
+    }
+    .drive-wrapper .drive-item-thumb {
+        width: auto;
+        height: 54px
+    }
+    .drive-wrapper .drive-item-thumb .fa {
+        font-size: 24px;
+        padding-top: 0
+    }
+    .view-account .content-panel .avatar .figure img {
+        float: none;
+        margin-bottom: 15px
+    }
+    .view-account .file-uploader {
+        margin-bottom: 15px
+    }
+    .view-account .mail-subject {
+        max-width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis
+    }
+    .view-account .content-panel .mails-wrapper .mail-item .time-container {
+        position: static
+    }
+    .view-account .content-panel .mails-wrapper .mail-item .time-container .time {
+        width: auto;
+        text-align: left
+    }
+}
+
+@media (min-width:768px) {
+    .view-account .side-bar .user-info {
+        padding: 0;
+        padding-bottom: 15px
+    }
+    .view-account .mail-subject .subject {
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis
+    }
+}
+
+@media (min-width:992px) {
+    .view-account .content-panel {
+        min-height: 800px;
+        border-left: 1px solid #f3f3f7;
+        margin-left: 200px
+    }
+    .view-account .mail-subject .subject {
+        max-width: 280px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis
+    }
+    .view-account .side-bar {
+        position: absolute;
+        width: 200px;
+        min-height: 600px
+    }
+    .view-account .side-bar .user-info {
+        margin-bottom: 0;
+        border-bottom: none;
+        padding: 30px
+    }
+    .view-account .side-bar .user-info .img-profile {
+        width: 120px;
+        height: 120px
+    }
+    .view-account .side-bar .side-menu {
+        text-align: left
+    }
+    .view-account .side-bar .side-menu .nav {
+        display: block
+    }
+    .view-account .side-bar .side-menu .nav>li {
+        display: block;
+        float: none;
+        font-size: 14px;
+        border-bottom: 1px solid #f3f3f7;
+        margin-right: 0;
+        margin-bottom: 0
+    }
+    .view-account .side-bar .side-menu .nav>li>a {
+        display: block;
+        color: #9499a3;
+        padding: 10px 15px;
+        padding-left: 30px
+    }
+    .view-account .side-bar .side-menu .nav>li>a:hover {
+        background: #f9f9fb
+    }
+    .view-account .side-bar .side-menu .nav>li.active a {
+        background: #f9f9fb;
+        border-right: 4px solid #40babd;
+        border-bottom: none
+    }
+    .theme-2 .view-account .side-bar .side-menu .nav>li.active a {
+        border-right-color: #6dbd63
+    }
+    .theme-3 .view-account .side-bar .side-menu .nav>li.active a {
+        border-right-color: #497cb1
+    }
+    .theme-4 .view-account .side-bar .side-menu .nav>li.active a {
+        border-right-color: #ec6952
+    }
+    .view-account .side-bar .side-menu .nav>li .icon {
+        font-size: 24px;
+        vertical-align: middle;
+        text-align: center;
+        width: 40px;
+        display: inline-block
+    }
+}
+    </style>
+
+{% include "user/nav.html" %}
+
+<section class="ftco-section">
+<div class="container">
+    <div class="row gutters">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="account-settings">
+                        <div class="user-profile">
+                            <div class="user-avatar">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Maxwell Admin">
+                            </div>
+                            <h5 class="user-name">Yuki Hayashi</h5>
+                            <h6 class="user-email">yuki@Maxwell.com</h6>
+                        </div>
+                        <div class="about">
+                            <h5 class="mb-2 text-primary">About</h5>
+                            <p>I'm Yuki. Full Stack Designer I enjoy creating user-centric, delightful and human experiences.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="card z-depth-3">
+                <div class="card-body">
+                    <ul class="nav nav-pills nav-pills-primary nav-justified">
+                        <li class="nav-item">
+                            <a href="javascript:void();" data-target="#profile" data-toggle="pill" class="nav-link active show"><i class="fa fa-user"></i> <span class="hidden-xs">Profile</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><i class="fa fa-envelope-open"></i> <span class="hidden-xs">Messages</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><i class="fa fa-edit"></i> <span class="hidden-xs">Edit</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:void();" data-target="#billing" data-toggle="pill" class="nav-link"><i class="fa fa-credit-card"></i> Billing</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content p-3">
+                        <div class="tab-pane active show" id="profile">
+                            <h5 class="mb-3">User Profile</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6>About</h6>
+                                    <p>Web Designer, UI/UX Engineer</p>
+                                    <h6>Hobbies</h6>
+                                    <p>Indie music, skiing and hiking. I love the great outdoors.</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6>Recent badges</h6>
+                                    <a href="javascript:void();" class="badge badge-dark badge-pill">html5</a>
+                                    <a href="javascript:void();" class="badge badge-dark badge-pill">react</a>
+                                    <a href="javascript:void();" class="badge badge-dark badge-pill">codeply</a>
+                                    <a href="javascript:void();" class="badge badge-dark badge-pill">angularjs</a>
+                                    <a href="javascript:void();" class="badge badge-dark badge-pill">css3</a>
+                                    <a href="javascript:void();" class="badge badge-dark badge-pill">jquery</a>
+                                    <a href="javascript:void();" class="badge badge-dark badge-pill">bootstrap</a>
+                                    <a href="javascript:void();" class="badge badge-dark badge-pill">responsive-design</a>
+                                    <hr>
+                                    <span class="badge badge-primary"><i class="fa fa-user"></i> 900 Followers</span>
+                                    <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
+                                    <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
+                                </div>
+                                <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <div class="row gutters">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <h6 class="mb-3 text-primary">Personal Details</h6>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="fullName">Full Name</label>
+                                                        <input type="text" class="form-control" id="fullName" placeholder="Enter full name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="eMail">Email</label>
+                                                        <input type="email" class="form-control" id="eMail" placeholder="Enter email ID">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="phone">Phone</label>
+                                                        <input type="text" class="form-control" id="phone" placeholder="Enter phone number">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="website">Website URL</label>
+                                                        <input type="url" class="form-control" id="website" placeholder="Website url">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row gutters">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <h6 class="mb-3 text-primary">Address</h6>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="Street">Street</label>
+                                                        <input type="name" class="form-control" id="Street" placeholder="Enter Street">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="ciTy">City</label>
+                                                        <input type="name" class="form-control" id="ciTy" placeholder="Enter City">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="sTate">State</label>
+                                                        <input type="text" class="form-control" id="sTate" placeholder="Enter State">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="zIp">Zip Code</label>
+                                                        <input type="text" class="form-control" id="zIp" placeholder="Zip Code">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row gutters">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="text-right">
+                                                        <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
+                                                        <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--div class="container">
+                                    <div class="col-md-12">
+                                        <h5 class="mt-2 mb-3">
+                                            <span class="fa fa-clock-o ion-clock float-right"></span> 
+                                            Recent Activity
+                                        </h5>
+                                        <table class="table table-hover table-striped">
+                                            <tbody>                                    
+                                                <tr>
+                                                    <td>
+                                                        <p><strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p><strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong></p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div-->
+                            </div>
+                            <!--/row-->
+                        </div>
+                    <div class="tab-pane" id="messages">
+                        <div class="alert alert-info alert-dismissible" role="alert">
+    			            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <div class="alert-icon">
+                                <i class="icon-info"></i>
+                            </div>
+                            <div class="alert-message">
+                                <span><strong>Info!</strong> Lorem Ipsum is simply dummy text.</span>
+                            </div>
+                        </div>
+                        <table class="table table-hover table-striped">
+                            <tbody>                                    
+                                <tr>
+                                    <td>
+                                        <p> Here is your a link to the latest summary report from the..</p>
+                                    <span class="float-right font-weight-bold">3 hrs ago</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <span class="float-right font-weight-bold">9/10</span> 
+                                    <p>Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus.</p> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus. 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros. 
+                                    </td>
+                                </tr>
+                            </tbody> 
+                        </table>
+                    </div>
+                    <div class="tab-pane content-panel" id="billing">
+        			    <h2 class="title">Billing</h2>
+        			        <div class="billing">
+        				        <div class="secure text-center margin-bottom-md">
+        					        <h3 class="margin-bottom-md text-success">
+        						        <span class="fs1 icon" aria-hidden="true" data-icon=""></span>
+        						        Secure credit card payment
+                                        <br>
+        						        <small>This is a secure 128-bit SSL encrypted payment</small>
+        					        </h3>
+                                    <div class="row">
+                                        <div class="accepted-cards">
+                                            <div class="align-items-center justify-content-center">
+                                            <!--ul class="list-inline"-->
+                                                <img src="https://www.uxfordev.com/demo/1.0.6/assets/images/payment-icon-set/icons/visa-curved-32px.png" alt="Visa">
+                                                <img src="https://www.uxfordev.com/demo/1.0.6/assets/images/payment-icon-set/icons/mastercard-curved-32px.png" alt="MasterCard">
+                                                <img src="https://www.uxfordev.com/demo/1.0.6/assets/images/payment-icon-set/icons/maestro-curved-32px.png" alt="Maestro">
+                                                <img src="https://www.uxfordev.com/demo/1.0.6/assets/images/payment-icon-set/icons/american-express-curved-32px.png" alt="American Express">
+                                            <!--/ul-->
+                                            </div>
+                                        </div>
+                                    </div>
+        				        </div>
+                                <form class="form-horizontal" method="post" action="#" role="form"><!--id="billing"-->
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Name on Card</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder="Your name">
+                                            <p class="help-block">As it appears on the card</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Card Number </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder="••••  ••••  ••••  ••••">
+                                            <p class="help-block">The 16 digits on the front of your credit card.</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Expiration Date</label>
+                                        <div class="col-sm-9 form-inline">
+                                            <select class="form-control">
+                                                <option value="01">01</option>
+                                                <option value="01">02</option>
+                                                <option value="01">03</option>
+                                                <option value="01">04</option>
+                                                <option value="01">05</option>
+                                                <option value="01">06</option>
+                                                <option value="01">07</option>
+                                                <option value="01">08</option>
+                                            </select>
+                                            <span class="divider">/</span>
+                                            <select class="form-control">
+                                                <option value="01">2015</option>
+                                                <option value="01">2016</option>
+                                                <option value="01">2017</option>
+                                                <option value="01">2018</option>
+                                                <option value="01">2019</option>
+                                                <option value="01">2020</option>
+                                                <option value="01">2021</option>
+                                                <option value="01">2022</option>
+                                            </select>
+                                            <p class="help-block">The date your credit card expires. Find this on the front of your credit card.</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Security Code</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" style="width: 120px;" placeholder="CVC">
+                                            <p class="help-block">The last 3 digits displayed on the back of your credit card.</p>
+                                        </div>
+                                    </div>
+                                    <div class="address">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Address</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" placeholder="Address">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-5 col-sm-offset-3">
+                                                <input type="text" class="form-control" placeholder="City">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" placeholder="Zip/Postal">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-5 col-sm-offset-3">
+                                                <input type="text" class="form-control" placeholder="Country">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" placeholder="State">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="action-wrapper text-center">
+                                        <h4 class="notes margin-bottom-sm">
+                                                You'll be charged <span class="text-stronger">$99/year</span> 
+                                            </h4>
+                                        <div class="action-btn">
+                                            <button class="btn btn-success btn-lg">
+                                                Make Payment
+                                                <i class="fa fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+        			        </div>
+        		        </div>
+                    <div class="tab-pane" id="edit">
+                        <form>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" value="Mark">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" value="Jhonsan">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="email" value="mark@example.com">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Change profile</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="file">
+                                </div>
+                            </div>
+                            <!--div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Website</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="url" value="">
+                                </div>
+                            </div-->
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Address</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" value="" placeholder="Street">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="text" value="" placeholder="City">
+                                </div>
+                                <div class="col-lg-3">
+                                    <input class="form-control" type="text" value="" placeholder="State">
+                                </div>
+                            </div>
+                        
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" value="jhonsanmark">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="password" value="11111122333">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="password" value="11111122333">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                <div class="col-lg-9">
+                                    <input type="reset" class="btn btn-secondary" value="Cancel">
+                                    <input type="button" class="btn btn-primary" value="Save Changes">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+    <script type="text/javascript">
+    
+    </script>
+</section>
+{% endblock %}
