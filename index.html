@@ -79,29 +79,14 @@
                 <!--a class="dropdown-item" href="{{url_for('checkout')}}">Checkout</a-->
               </div>
             </li>
-	          <li class="nav-item"><a href="{{url_for('about')}}" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="{{url_for('contact_us')}}" class="nav-link">Contact</a></li>
-			  {% if signedin %}
-	          	<li class="nav-item cta cta-colored"><a href="{{url_for('my_cart')}}" class="nav-link">[0]</a></li>
-			  {% endif %}
-			
+	          <li class="nav-item"><a href="" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="" class="nav-link">Contact</a></li>
+	          <!--li class="nav-item cta cta-colored"><a href="{{url_for('my_cart')}}" class="nav-link">[0]</a></li-->
 	          <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">Account</a>
               <div class="dropdown-menu col-md-5" aria-labelledby="dropdown04">
 				<!--div class="row dropdown-item"-->
                     <div class="justify-content-between align-items-center dropdown-item col-md-6 collapse navbar-collapse" id="ftco-nav">
-						{% if signedin %}
-                      		<p><a type="button" class="btn btn-primary" href="{{url_for('signout')}}">sign out</a></p>
-						{% else %}
-							<div class="row justify-content-center">
-								<p class="col-md d-flex">
-									<!--a type="button" class="btn btn-primary mb-3 d-flex py-2 px-3" href="{{url_for('signin')}}">signin</a>
-									<a type="button" class="btn btn-primary mb-3 d-flex py-2 px-3" href="{{url_for('signup')}}">signup</a-->
-								</p>
-							</div>
-						{% endif %}
-						</div>
-				<hr>
               	<!--a class="dropdown-item" href="{{url_for('view_profile')}}">My Profile</a>
 				<a class="dropdown-item" href="{{url_for('my_cart')}}">My Cart</a>
               	<a class="dropdown-item" href="{{url_for('my_orders')}}">My Orders</a>
@@ -114,7 +99,26 @@
 	    </div>
     </nav>
 
-    {% block content %}{% endblock %}
+<section class="ftco-section img" style="background-image: url({{ url_for('static', filename='images/bg_3.jpg') }})">
+    <div class="container">
+            <div class="row justify-content-end">
+      <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
+          <span class="subheading">Best Price For You</span>
+        <h2 class="mb-4">Deal of the day</h2>
+        <p>Faraway, awesome deals. Don't miss this opportunity!!!</p>
+        <h3><a href="#">Raddish</a></h3>
+        <span class="price"><a href="#">P4.00 only</a></span>
+        <p><a href="{{url_for('deals')}}" class="btn btn-primary">View Details and More Deals</a></p>
+        <div id="timer" class="d-flex mt-5">
+                      <!--div class="time" id="days"></div-->
+                      <div class="time pl-3" id="hours"></div>
+                      <div class="time pl-3" id="minutes"></div>
+                      <div class="time pl-3" id="seconds"></div>
+                    </div>
+      </div>
+    </div>   		
+    </div>
+</section>
     
 
     
